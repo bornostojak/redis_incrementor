@@ -1,0 +1,30 @@
+version: "3.9"
+services:
+  redis:
+    container_name: inc_redis
+    image: redis:6.2.6-alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - backend
+
+      
+  incrementor:
+    container_name: inc_app
+    image: bornostojak/incrementor:0.1.2
+    ports:
+      - "8080:8080"
+    environment:
+      - "REDIS_SERVER=redis"
+    depends_on:
+      - redis
+    links:
+      - redis
+    networks:
+      - backend
+    deploy:
+      replicas: 10
+
+networks:
+  backend:
+
