@@ -12,6 +12,8 @@ services:
   incrementor:
     container_name: inc_app
     image: bornostojak/incrementor:0.1.2
+    build:
+      context: "./incrementor"
     ports:
       - "8080:8080"
     environment:

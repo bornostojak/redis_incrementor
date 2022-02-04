@@ -1,2 +1,4 @@
-tests/
-!tests/tests.zip
+tests/*
+!tests/*.zip
+!tests/*.png
+tests.zip

@@ -11,6 +11,7 @@ services:
       
   incrementor:
     container_name: inc_app
+    image: bornostojak/incrementor:0.1.2
     build:
       context: "./incrementor"
     ports:
@@ -23,8 +24,6 @@ services:
       - redis
     networks:
       - backend
-    deploy:
-      replicas: 10
 
 networks:
   backend:
